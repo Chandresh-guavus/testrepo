@@ -11,10 +11,11 @@ pipeline {
   }
 	post {
     success {
-        setBuildStatus("Build succeeded", "SUCCESS");
+        githubNotify account: '', context: '', credentialsId: 'github', description: '', gitApiUrl: '', repo: '', sha: '', status: 'SUCCESS', targetUrl: ''
+
     }
-    failure {
-        setBuildStatus("Build failed", "FAILURE");
+    githubNotify account: '', context: '', credentialsId: 'github', description: '', gitApiUrl: '', repo: '', sha: '', status: 'FAILURE', targetUrl: ''
+("Build failed", "FAILURE");
     }
   }
 }
