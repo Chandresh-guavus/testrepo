@@ -10,10 +10,10 @@ pipeline {
 	 
   }
 	post {
-    success {
+		success {
         githubNotify account: '', context: '', credentialsId: 'github', description: '', gitApiUrl: '', repo: '', sha: '', status: 'SUCCESS', targetUrl: ''
-
     }
+    failure {
     githubNotify account: '', context: '', credentialsId: 'github', description: '', gitApiUrl: '', repo: '', sha: '', status: 'FAILURE', targetUrl: ''
     }
   }
