@@ -1,7 +1,7 @@
 pipeline {
   agent any
 	triggers {
-        githubPullRequest {
+        githubPullRequest{
             orgWhitelist('Guavus')
             cron('* * * * *')
             triggerPhrase('ok to test')
