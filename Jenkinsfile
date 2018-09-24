@@ -11,11 +11,6 @@ pipeline {
         sh 'echo "success"'
       }
     }
-	   post {
-       always {
-   
-         
-       }
-  }
+	 
 }
 }
