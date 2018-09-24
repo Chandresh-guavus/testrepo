@@ -15,7 +15,6 @@ pipeline {
 
     }
     githubNotify account: '', context: '', credentialsId: 'github', description: '', gitApiUrl: '', repo: '', sha: '', status: 'FAILURE', targetUrl: ''
-("Build failed", "FAILURE");
     }
   }
 }
