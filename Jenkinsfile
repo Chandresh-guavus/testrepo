@@ -13,13 +13,10 @@ pipeline {
 
     triggers {
         githubPullRequest {
-            orgWhitelist('Guavus'
+            orgWhitelist('Guavus')
             cron('* * * * *')
-            triggerPhrase('special trigger phrase')
-            onlyTriggerPhrase()
+            triggerPhrase('ok to test')
             useGitHubHooks()
-            permitAll()
-            autoCloseFailedPullRequests()
             displayBuildErrorsOnDownstreamBuilds()
             whiteListTargetBranches(['master','test', 'test2'])
             allowMembersOfWhitelistedOrgsAsAdmin()
