@@ -1,12 +1,8 @@
 pipeline {
   agent any
 	triggers {
-			githubPullRequest {
-				cron("*/2 * * * *")
-				permitAll(false)
-				triggerPhrase("ok to test")
-			}
-		}
+	        issueCommentTrigger('.*test this please.*')
+	    }
 
 
   stages {
