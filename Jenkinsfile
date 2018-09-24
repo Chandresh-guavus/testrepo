@@ -1,16 +1,5 @@
 pipeline {
   agent any
-  job('upstreamJob') {
-    scm {
-        git {
-            remote {
-                github('Chandresh-guavus/testrepo.git')
-                refspec('+refs/pull/*:refs/remotes/origin/pr/*')
-            }
-            branch('${sha1}')
-        }
-    }
-
     triggers {
         githubPullRequest {
             orgWhitelist('Guavus')
