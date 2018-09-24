@@ -29,8 +29,6 @@ pipeline {
             }
         }
     }
-}
-
 
   stages {
     stage('test') {
