@@ -22,9 +22,6 @@ pipeline {
             autoCloseFailedPullRequests()
             displayBuildErrorsOnDownstreamBuilds()
             whiteListTargetBranches(['master','test', 'test2'])
-            blackListTargetBranches(['master','test', 'test2'])
-            whiteListLabels(['foo', 'bar'])
-            blackListLabels(['baz'])
             allowMembersOfWhitelistedOrgsAsAdmin()
             extensions {
                 commitStatus {
@@ -46,30 +43,8 @@ pipeline {
             }
         }
     }
-    publishers {
-        mergeGithubPullRequest {
-            mergeComment('merged by Jenkins')
-            onlyAdminsMerge()
-            disallowOwnCode()
-            failOnNonMerge()
-            deleteOnMerge()
-        }
-    }
 }
 
-job('downstreamJob') {
-    wrappers {
-        downstreamCommitStatus {
-            context('CONTEXT NAME')
-            triggeredStatus("The job has triggered")
-            startedStatus("The job has started")
-            statusUrl()
-            completedStatus('SUCCESS', "The job has passed")
-            completedStatus('FAILURE', "The job has failed")
-            completedStatus('ERROR', "The job has resulted in an error")
-        }
-    }
-}
   stages {
     stage('test') {
       steps {
