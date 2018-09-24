@@ -14,7 +14,7 @@ pipeline {
     triggers {
         githubPullRequest {
             orgWhitelist('Guavus'
-            cron(* * * * *')
+            cron('* * * * *')
             triggerPhrase('special trigger phrase')
             onlyTriggerPhrase()
             useGitHubHooks()
