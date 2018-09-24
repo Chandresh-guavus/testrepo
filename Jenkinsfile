@@ -14,10 +14,7 @@ pipeline {
 	   post {
        always {
    
-            pullRequest.createStatus(
-                         context: 'continuous-integration/jenkins/pr-merge/tests',
-                         description: 'All tests are passing',
-                         targetUrl: "${env.JOB_URL}/testResults")
+         
        }
   }
 }
