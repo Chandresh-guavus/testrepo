@@ -11,9 +11,9 @@ pipeline {
   }
 	post {
 		success {
-def comment = pullRequest.comment('This PR is OK to MERGE')
+ pullRequest.comment('This PR is OK to MERGE')
     }
     failure {
-def comment = pullRequest.comment('This PR is NOT fit to MERGE')    }
+ pullRequest.comment('This PR is NOT FIT to MERGE')    }
   }
 }
