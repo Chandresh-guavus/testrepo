@@ -11,10 +11,9 @@ pipeline {
   }
 	post {
 		success {
-        githubNotify account: '', context: '', credentialsId: 'github', description: '', gitApiUrl: '', repo: '', sha: '', status: 'SUCCESS', targetUrl: ''
+def comment = pullRequest.comment('This PR is OK to MERGE')
     }
     failure {
-    githubNotify account: '', context: '', credentialsId: 'github', description: '', gitApiUrl: '', repo: '', sha: '', status: 'FAILURE', targetUrl: ''
-    }
+def comment = pullRequest.comment('This PR is NOT fit to MERGE')    }
   }
 }
