@@ -24,7 +24,7 @@ agent {
       steps {
         sh 'echo "${branchVersion}"&& mkdir dist && touch ./dist/a.rpm'
         script{
-         artifact_push('rpm',env.buildType, 'a.rpm')   
+         artifact_push('rpm',env.buildType, 'a.rpm', './dist/')   
         }
         }
       }
