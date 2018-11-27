@@ -1,6 +1,11 @@
 @Library('jenkins_lib')_
 pipeline {
-agent any
+agent {
+    node {
+        label 'slave'
+        
+    }
+}
 
     environment {
     // Define global environment variables in this section
@@ -8,6 +13,7 @@ agent any
     buildType = BRANCH_NAME.split('/').first()
     branchVersion = BRANCH_NAME.split('/').last()
     buildVersion = '1.0.0'
+    
     stRepoPath= 'cdap-plugins'
     stFrameworkPath = "${env.stRepoPath}/automation"
   }
@@ -16,9 +22,13 @@ agent any
   stages {
     stage('test') {
       steps {
-        sh 'echo "${env.branchVersion}"&& touch a.rpm'
-        artifact_push("rpm",env.buildType)
+        sh 'echo "${branchVersion}"&& mkdir dist && touch ./dist/a.rpm'
+        script{
+         artifact_push('rpm',env.buildType, 'a.rpm')   
+        }
+        }
       }
     }
   }
-}
+
+
