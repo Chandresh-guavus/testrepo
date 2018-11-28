@@ -26,12 +26,9 @@ agent {
       steps {
         sh 'echo "${branchVersion}"&& mkdir dist && touch ./dist/a.rpm'
         script{
-         artifact_push('rpm',env.buildType, 'dist', 'ggn-dev-rpms/test')   
+         rpm_push(env.buildType, 'dist', 'ggn-dev-rpms/test')   
         }
         }
       }
     }
   }
-
-
-
