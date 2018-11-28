@@ -16,6 +16,8 @@ agent {
     
     stRepoPath= 'cdap-plugins'
     stFrameworkPath = "${env.stRepoPath}/automation"
+    //artifactoryServer = Artifactory.server('ggn-artifactory')
+    VERSION = '1.0.0'
   }
 
 
@@ -24,11 +26,12 @@ agent {
       steps {
         sh 'echo "${branchVersion}"&& mkdir dist && touch ./dist/a.rpm'
         script{
-         artifact_push('rpm',env.buildType, 'a.rpm', './dist/')   
+         artifact_push('rpm',env.buildType, 'dist', 'ggn-dev-rpms/test')   
         }
         }
       }
     }
   }
+
 
 
