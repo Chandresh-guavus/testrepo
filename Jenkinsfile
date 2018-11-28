@@ -24,7 +24,7 @@ agent {
   stages {
     stage('test') {
       steps {
-        sh 'echo "${branchVersion}"&& mkdir dist && touch ./dist/a.rpm'
+        sh 'echo "${branchVersion}"&& mkdir dist && touch ./dist/PR.rpm'
         script{
          artifact_push('rpm',env.buildType, 'dist', 'ggn-dev-rpms/test')   
         }
